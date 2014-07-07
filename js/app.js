@@ -11,7 +11,17 @@ $$.json(
 					<strong>'+disciplina+'</strong> \
 				</li>'
 			);
-
+			$$('#aside-itens').append('\
+				<li data-view-article="'+dados[disciplina].abrev+'" data-icon="list"> \
+					<strong>'+disciplina+'</strong> \
+				</li>'
+			);
+			$$('#aside-itens').append('\
+				<li data-view-article="'+dados[disciplina].abrev+'" data-icon="list"> \
+					<strong>'+disciplina+'</strong> \
+				</li>'
+			);
+			
 			/**
 			* Montando página inicial
 			**/
@@ -21,6 +31,20 @@ $$.json(
 				cor = 'blue';
 			}
 			$$('#home-itens').append('\
+				<li>\
+					<div class="on-right grade "> <span class="'+cor+'">'+dados[disciplina].nota+'</span></div>\
+					<strong>'+disciplina+'</strong>\
+					<!--<small>Nota: <span class="'+cor+'">'+dados[disciplina].nota+'</span></small>-->\
+				</li>'
+			);
+$$('#home-itens').append('\
+				<li>\
+					<div class="on-right grade "> <span class="'+cor+'">'+dados[disciplina].nota+'</span></div>\
+					<strong>'+disciplina+'</strong>\
+					<!--<small>Nota: <span class="'+cor+'">'+dados[disciplina].nota+'</span></small>-->\
+				</li>'
+			);
+$$('#home-itens').append('\
 				<li>\
 					<div class="on-right grade "> <span class="'+cor+'">'+dados[disciplina].nota+'</span></div>\
 					<strong>'+disciplina+'</strong>\
@@ -74,13 +98,13 @@ $$.json(
 				i++;
 			}
 			$$('#'+dados[disciplina].abrev).append(agendamentos);
-			if(Lungo.Core.environment().os.name.toLowerCase() === 'android') {
-			  angular.element($$('#timeline-article')[0]).css('overflow-y', 'hidden');
+			//if(Lungo.Core.environment().os.name.toLowerCase() === 'android') {
+			 // $$($$('#timeline-article')[0]).css('overflow-y', 'hidden');
 			  // Browser must be allowed perform stuff from the hidden first so we delay the revert
-			  setTimeout(function() { 
-			    angular.element($$('#timeline-article')[0]).css('overflow-y', 'scroll');
-			  }, 1);
-			}
+			 /* setTimeout(function() { 
+			    	$$($$('#timeline-article')[0]).css('overflow-y', 'scroll');
+			  }, 1);*/
+			//}
 		}
 	}
 );
