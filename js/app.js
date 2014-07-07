@@ -21,7 +21,7 @@ $$.json(
 					<strong>'+disciplina+'</strong> \
 				</li>'
 			);
-			
+
 			/**
 			* Montando página inicial
 			**/
@@ -98,13 +98,6 @@ $$('#home-itens').append('\
 				i++;
 			}
 			$$('#'+dados[disciplina].abrev).append(agendamentos);
-			//if(Lungo.Core.environment().os.name.toLowerCase() === 'android') {
-			 // $$($$('#timeline-article')[0]).css('overflow-y', 'hidden');
-			  // Browser must be allowed perform stuff from the hidden first so we delay the revert
-			 /* setTimeout(function() { 
-			    	$$($$('#timeline-article')[0]).css('overflow-y', 'scroll');
-			  }, 1);*/
-			//}
 		}
 	}
 );
