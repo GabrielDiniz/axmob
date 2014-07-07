@@ -74,6 +74,13 @@ $$.json(
 				i++;
 			}
 			$$('#'+dados[disciplina].abrev).append(agendamentos);
+			if(Lungo.Core.environment().os.name.toLowerCase() === 'android') {
+			  angular.element($$('#timeline-article')[0]).css('overflow-y', 'hidden');
+			  // Browser must be allowed perform stuff from the hidden first so we delay the revert
+			  setTimeout(function() { 
+			    angular.element($$('#timeline-article')[0]).css('overflow-y', 'scroll');
+			  }, 1);
+			}
 		}
 	}
 );
