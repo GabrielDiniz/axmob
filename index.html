@@ -5,24 +5,28 @@
 	<link rel="stylesheet" href="css/lungo.css">
 	<link rel="stylesheet" href="css/lungo.icon.css">
 	<link rel="stylesheet" href="css/lungo.theme.css">
-	<script src="js/quo.js"></script>
-	<script src="js/lungo.js"></script>	
-	<script src="js/app.js"></script>	
 	<style type="text/css">
 		.grade{
 			font-size: 14px !important;
 			
 		}
-		.blue{
+		.red,.blue{
 			font-weight: bold !important;
+			background-color: #f0f5ef;
+			border-radius: 5px;
+			padding: 0px 3px;
+		}
+		.blue{
 			color: #12d !important
 		}
 		.red{
-			font-weight: bold !important;
 			color: #d21 !important
 		}
 		article.active{
 			overflow-y: scroll !important;
+		}
+		#logout:hover .icon{
+			color: #d21
 		}
 	</style>
 </head>
@@ -43,27 +47,74 @@
 		</article>
 	</aside>
 	<section id="main" data-transition="slide" data-aside="features" class="drag">
-		<header>
+		<header id="main-header">
 			<nav>
 				<a href="#" data-view-aside="features" data-icon="menu"></a>
 			</nav>
-			<!-- <img src="static/images/logo.png" class="title centered"> -->
-			
+			<img src="logo.png" class="title centered">
+			<nav class="on-right">
+				<a id="refresh" href="#" data-view-article="home" data-icon="refresh"></a>
+			</nav>
 		</header>
 
+		<header id="login-header"><img src="logo.png" class="title centered"></header>
+		<article id="form-login" class="list">
+			<div class="form">
+				<li>Faça seu login</li>
+				<fieldset>
+					<label class="select large">
+						<select id="unidade"  placeholder="login" class="border large text bold ">
+							<option> Selecione a Unidade</option>
+							<option value="1">Carangola</option>
+							<option value="2">Caratinga</option>
+							<option value="3">Cataguases</option>
+							<option value="4">Guarapari</option>
+							<option value="5">Iúna</option>
+							<option value="6">Ipatinga</option>
+							<option value="7">João Monlevade</option>
+							<option value="8">Juiz de Fora</option>
+							<option value="9">Leopoldina</option>
+							<option value="10">Manhuaçu</option>
+							<option value="11">Serra</option>
+							<option value="12">Teófilo Otoni</option>
+							<option value="13">Vila Velha</option>
+							<option value="14">Vitória</option>
+						</select>
+					</label>
+				</fieldset>
+				<fieldset data-icon="user"><span class="icon user"></span>
+					<input id="aluno" type="text" placeholder="login" class="border large text bold">
+				</fieldset>
+				<fieldset data-icon="lock"><span class="icon lock"></span>
+					<input id="senha" type="password" placeholder="senha" class="border large text bold" >
+				</fieldset>
+
+				<fieldset>
+					<label class="anchor text bold">Mantenha-me conectado</label>
+					<input id="lembrar" type="checkbox" class="inline right">
+				</fieldset>
+				<button id="submit" class="anchor margin-bottom" data-label="Entrar"></button>
+			</div>
+		</article>
 		<article id="home" class="list scroll indented active">
 			<li class="theme">
-				Disciplinas
+				<div class="on-right"> Nota </div>
+				<strong>Disciplinas</strong>
 			</li>
+
 			<ul id="home-itens">
-				
+
+
 			</ul>
 		</article>
 	</section>
+	<script src="js/quo.js"></script>
+	<script src="js/lungo.js"></script>	
 	<script type="text/javascript">
 		Lungo.init({
 
 		});
 	</script>
+	<script src="js/app.js"></script>	
 </body>
 </html>
