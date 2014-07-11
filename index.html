@@ -36,7 +36,7 @@
 			
 		</header>
 
-		<article class="list scroll">
+		<article class="list scroll active">
 			<ul id="aside-itens">
 				<li data-view-article="home" data-icon="home">
 					<strong>Home</strong>
@@ -44,25 +44,15 @@
 			</ul>
 		</article>
 	</aside>
-	<section id="main" data-transition="slide"  class="drag">
-		<header id="main-header">
-			<nav>
-				<a href="#" data-view-aside="features" data-icon="menu"></a>
-			</nav>
-			<img src="logo.png" class="title centered">
-			<nav class="on-right">
-				<a id="refresh" href="#" data-view-article="home" data-icon="home"></a>
-			</nav>
-		</header>
-
+	<section id="login" data-transition="slide" class="drag">
 		<header id="login-header"><img src="logo.png" class="title centered"></header>
-		<article id="form-login" class="list">
+		<article id="form-login" class="list active">
 			<div class="form">
 				<li>Faça seu login</li>
 				<fieldset>
 					<label class="select large">
 						<select id="unidade"  placeholder="login" class="border large text bold ">
-							<option> Selecione a Unidade</option>
+							<option value=""> Selecione a Unidade</option>
 							<option value="1">Carangola</option>
 							<option value="2">Caratinga</option>
 							<option value="3">Cataguases</option>
@@ -91,9 +81,21 @@
 					<label class="anchor text bold">Mantenha-me conectado</label>
 					<input id="lembrar" type="checkbox" class="inline right">
 				</fieldset>
-				<button id="submit" class="anchor margin-bottom" data-label="Entrar"></button>
+				<button id="submit" data-view-section="main" class="anchor margin-bottom" data-label="Entrar"></button>
 			</div>
 		</article>
+	</section>
+	<section id="main" data-transition="slide" data-aside="features" class="drag">
+		<header id="main-header">
+			<nav>
+				<a href="#" data-view-aside="features" data-icon="menu"></a>
+			</nav>
+			<img src="logo.png" class="title centered">
+			<nav class="on-right">
+				<a id="refresh" href="#" data-view-article="home" data-icon="home"></a>
+			</nav>
+		</header>
+
 		<article id="home" class="list scroll indented active">
 			<li class="theme">
 				<div class="on-right"> Nota </div>

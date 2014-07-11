@@ -120,7 +120,6 @@ $$(function() {
 		return this;
 	};
 
-	load(aluno,unidade);
 
 	$$("#refresh").tap(function() {
 		$$("#home-itens").html('');
@@ -133,6 +132,18 @@ $$(function() {
 		
 	});
 	$$("#submit").tap(function() {
+		if($$("#unidade").val()==""){
+			Lungo.Notification.error(
+						"Erro",
+						"Informe a unidade",
+						"warning-sign",
+						3,
+						function() {
+							location.reload();
+						}
+					);
+			return false;
+		}
 		$$.ajax({
 			type: 'GET', // defaults to 'GET'
 			url: BASE_URL+'loginMobile.php',
@@ -145,13 +156,15 @@ $$(function() {
 			async: true,
 			success: function(ret) {
 				
-				if (ret.erro==1) {
+				if (ret.erro==1 ) {
 					Lungo.Notification.error(
 						"Erro",
 						"Login ou senha incorretos",
 						"warning-sign",
 						3,
-						function() {}
+						function() {
+							location.reload();
+						}
 					);
 				} else{
 					aluno = $$("#aluno").val();
@@ -160,9 +173,11 @@ $$(function() {
 						localStorage.setItem('aluno',aluno);
 						localStorage.setItem('unidade',unidade);
 					};
+					$$("#main").attr('data-aside','features');
 					load(aluno,unidade);
 				};
 			},
 		});
 	});
+	load(aluno,unidade);
 });
