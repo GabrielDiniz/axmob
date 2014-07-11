@@ -10,12 +10,13 @@ $$(function() {
 			$$("#form-login").removeClass("active");
 			$$("#home").addClass("active");
 			$$.json(
-				BASE_URL+'/notasMobile.php',
+				BASE_URL+'notasMobile.php',
 				{
 					aluno:aluno,
 					unidade:unidade
 				},
 				function(dados) {
+					console.log(dados);
 					for(var disciplina in dados){
 						/**
 						* Montando Menu-lateral
@@ -36,10 +37,10 @@ $$(function() {
 						}
 						$$('#home-itens').append('\
 							<li>\
-								<a href="#" data-view-article="'+dados[disciplina].abrev+'"> <div class="on-right grade "> <span class="'+cor+'">'+parseFloat(dados[disciplina].nota).toFixed(2)+'</span></div>\
+								<a href="#" data-view-article="'+dados[disciplina].abrev+'"> <div class="on-right grade "> <span class="'+cor+'">'+parseFloat(dados[disciplina].nota).toFixed(1)+'</span></div>\
 									<strong>'+disciplina+'</strong>\
 								</a>\
-								<!--<small>Nota: <span class="'+cor+'">'+parseFloat(dados[disciplina].nota).toFixed(2)+'</span></small>-->\
+								<!--<small>Nota: <span class="'+cor+'">'+parseFloat(dados[disciplina].nota).toFixed(1)+'</span></small>-->\
 							</li>'
 						);
 		
@@ -74,8 +75,8 @@ $$(function() {
 							}
 							agendamentos=agendamentos+'\
 								<li class="theme">\
-									<div class="on-right grade "> <span class="'+cor+'">'+parseFloat(dados[disciplina].etapas[etapa].nota).toFixed(2)+'</span></div>\
-									'+etapa+'\
+									<div class="on-right grade "> <span class="'+cor+'">'+parseFloat(dados[disciplina].etapas[etapa].nota).toFixed(1)+'</span></div>\
+									<strong>'+etapa+'</strong>\
 								</li>\
 								<ul id="#agenda-'+dados[disciplina].abrev+'-'+i+'">';
 		
@@ -87,8 +88,8 @@ $$(function() {
 								}
 								agendamentos = agendamentos + '\
 									<li>\
-										<div class="on-right grade "> <span class="'+cor+'">'+parseFloat(dados[disciplina].etapas[etapa].agenda[agendamento].nota).toFixed(2)+'</span></div>\
-										<strong>'+agendamento+'</strong>\
+										<div class="on-right grade "> <span class="'+cor+'">'+parseFloat(dados[disciplina].etapas[etapa].agenda[agendamento].nota).toFixed(1)+'</span></div>\
+										<strong>'+dados[disciplina].etapas[etapa].agenda[agendamento].nome+'</strong>\
 										<small>Data: '+dados[disciplina].etapas[etapa].agenda[agendamento].data+'</small>\
 										<small>Valor: '+dados[disciplina].etapas[etapa].agenda[agendamento].valor+'</small>\
 									</li>'
@@ -134,7 +135,7 @@ $$(function() {
 	$$("#submit").tap(function() {
 		$$.ajax({
 			type: 'GET', // defaults to 'GET'
-			url: BASE_URL+'/loginMobile.php',
+			url: BASE_URL+'loginMobile.php',
 			data:{
 				unidade : $$("#unidade").val(),
 				aluno : $$("#aluno").val(),

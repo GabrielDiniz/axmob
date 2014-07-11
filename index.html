@@ -33,12 +33,10 @@
 <body>
 	<aside id="features" data-transition="left">
 		<header data-title="Disciplinas">
-			<nav class="on-right">
-				<a href="#" class="buttons" data-icon="settings"></a>
-			</nav>
+			
 		</header>
 
-		<article class="list scroll active">
+		<article class="list scroll">
 			<ul id="aside-itens">
 				<li data-view-article="home" data-icon="home">
 					<strong>Home</strong>
@@ -46,14 +44,14 @@
 			</ul>
 		</article>
 	</aside>
-	<section id="main" data-transition="slide" data-aside="features" class="drag">
+	<section id="main" data-transition="slide"  class="drag">
 		<header id="main-header">
 			<nav>
 				<a href="#" data-view-aside="features" data-icon="menu"></a>
 			</nav>
 			<img src="logo.png" class="title centered">
 			<nav class="on-right">
-				<a id="refresh" href="#" data-view-article="home" data-icon="refresh"></a>
+				<a id="refresh" href="#" data-view-article="home" data-icon="home"></a>
 			</nav>
 		</header>
 
@@ -82,7 +80,7 @@
 						</select>
 					</label>
 				</fieldset>
-				<fieldset data-icon="user"><span class="icon user"></span>
+				<fieldset data-icon="user"><span class="icon user text large"></span>
 					<input id="aluno" type="text" placeholder="login" class="border large text bold">
 				</fieldset>
 				<fieldset data-icon="lock"><span class="icon lock"></span>
